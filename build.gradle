@@ -1,8 +1,16 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
+        maven {
+            credentials {
+                username '6085254c3a10edbf361e96f4'
+                password 'wfguWXKG0TZG'
+            }
+            url 'https://packages.aliyun.com/maven/repository/2098829-release-XuxGCE/'
+        }
         google()
         mavenCentral()
+
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.4"

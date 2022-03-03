@@ -3,9 +3,80 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1828125" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/Retrieve_select_pwd.xml" value="0.2677083333333333" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/au_boarder.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/au_boarder_bg.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/au_btn_radian_bg.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/au_btn_radian_bg1.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/au_btn_radian_bg2.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/au_date_seclet.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/au_date_select.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/au_re_boarder.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/au_re_boarder_bg2.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/au_remark_bg_radian.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/au_select.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/authorization_radius.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/determine_au_ic.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/green_point.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/gui_bg.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/ic_launcher_background.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/ic_login_error.xml" value="0.1109375" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/lic_au_bg_radian.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/lic_plate_select.xml" value="0.1375" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/lic_tv_block.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/license_plate_select.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/ll_radius.xml" value="0.21822916666666667" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/login_btn.xml" value="0.1671875" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/login_input_boarder.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/login_pwd_ic_select.xml" value="0.20185185185185187" />
         <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/login_username_boarder.xml" value="0.378125" />
-        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/mine_pwd_ic_select.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/mine_select_radian.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/red20%_point.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/red_point.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/red_point2.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/retrieve_select_pwd.xml" value="0.2677083333333333" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/retrieve_select_pwd2.xml" value="0.2677083333333333" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/search_boarder.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/drawable/verif_boarder_btn.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/acctivity_change_succeed.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_acctivity_change_succeed.xml" value="0.3515625" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_au_determine_ic.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_authorization1.xml" value="0.33" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_authorization2.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_authorization_car.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_authorization_car1.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_authorization_car2.xml" value="0.33" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_authorization_details.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_authorization_record.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_authorize_record.xml" value="0.33" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_authorize_record1.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_authorize_record2.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_authorize_record_edit.xml" value="0.33" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_change_password.xml" value="0.33" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_forget_password.xml" value="0.33" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_forget_password2.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_license_authorization.xml" value="0.33" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_license_authorization_edit1.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_login.xml" value="0.2859399684044234" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_mine_home.xml" value="0.33" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_modify_password.xml" value="0.3515625" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_nolicense_authorization.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_picker_image.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_pwd_verification_code.xml" value="0.33" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_reset_password.xml" value="0.33" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/activity_test.xml" value="0.31574074074074077" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/fragment_dashboard.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/layout_title_bar.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/layout/pd_verification_code_phone.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/menu/bottom_nav_menu.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1828125" />
+        <entry key="..\:/Users/bigoat/AndroidStudioProjects/Movebusiness/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1828125" />
       </map>
     </option>
   </component>
