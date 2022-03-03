@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.yaokun.movebusiness.R;
 
+/**
+ * 我的界面
+ */
 public class MineHomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class MineHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MineHomeActivity.this,MainActivity.class);
                 MineHomeActivity.this.startActivity(intent);
+                finish();
             }
         });
 

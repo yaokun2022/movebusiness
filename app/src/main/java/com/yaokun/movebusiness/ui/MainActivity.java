@@ -28,6 +28,7 @@ public class MainActivity extends BaseActivity {
     public void mineHomeClick(View view) {
         Intent intent = new Intent(MainActivity.this,MineHomeActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void recordClick(View view) {
