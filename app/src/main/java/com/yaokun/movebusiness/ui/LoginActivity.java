@@ -78,19 +78,10 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                Log.d("TextWatcher", "afterTextChanged: " + editable.toString());
-
-                String username = editable.toString();
-                // "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$"
-                if (PhoneUtils.checkPhone(username)) {
-                    // 3.符合显示正确图标不满足不显示
-                    usernameEt.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, getDrawable(R.mipmap.login_username_ic), null);
-                } else {
-                    // 3.符合显示正确图标不满足不显示
-                    usernameEt.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, null, null);
-                }
+                checkUsername(editable.toString());
             }
         });
+
 
         showPwdIv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,6 +163,24 @@ public class LoginActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkUsername(usernameEt.getText().toString());
+    }
+
+    // 校验用户名设置icon
+    private void checkUsername(String username) {
+        if (PhoneUtils.checkPhone(username)) {
+            // 3.符合显示正确图标不满足不显示
+            usernameEt.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, getDrawable(R.mipmap.login_username_ic), null);
+        } else {
+            // 3.符合显示正确图标不满足不显示
+            usernameEt.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, null, null);
+        }
+    }
+
 
     private void hideNetworkLoading() {
         networkLoadingLL.setVisibility(View.GONE);
