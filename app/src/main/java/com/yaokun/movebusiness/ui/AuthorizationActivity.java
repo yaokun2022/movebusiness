@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.github.gzuliyujiang.wheelpicker.OptionPicker;
 import com.github.gzuliyujiang.wheelpicker.TimePicker;
@@ -45,11 +46,22 @@ public class AuthorizationActivity extends AppCompatActivity {
     private ImageView pointRed;
     private TextView helpTv;
     private ImageView picture;
+    private AppCompatButton deletePic ;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorization1);
+
+        //删除凭证
+        deletePic = findViewById(R.id.deletePic);
+        deletePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                picture.setVisibility(picture.GONE);
+                deletePic.setVisibility(deletePic.GONE);
+            }
+        });
 
 
         // Android状态栏与背景图完美沉浸
@@ -64,6 +76,7 @@ public class AuthorizationActivity extends AppCompatActivity {
         licTv = findViewById(R.id.licTV);
         pointRed = findViewById(R.id.pointIv);
         helpTv = findViewById(R.id.helpTv);
+
 
 
         licensePlate.setOnClickListener(new View.OnClickListener() {
@@ -234,6 +247,8 @@ public class AuthorizationActivity extends AppCompatActivity {
                     picture.setImageBitmap(BitmapFactory.decodeFile(pictureBean.getPath()));
                 } else {
                     picture.setImageURI(pictureBean.getUri());
+                    picture.setVisibility(picture.VISIBLE);
+                    deletePic.setVisibility(deletePic.VISIBLE);
                 }
 
                 //使用 Glide 加载图片
@@ -242,8 +257,8 @@ public class AuthorizationActivity extends AppCompatActivity {
                         .apply(RequestOptions.centerCropTransform()).into(mIvImage);*/
             }
         }
-            }
-        }
+    }
+}
 
 
 
