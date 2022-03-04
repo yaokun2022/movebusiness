@@ -9,6 +9,7 @@ public class User {
     private String imgUrl;
     private String sex;
     private int age;
+    private String username;
 
     public String getId() {
         return id;
@@ -50,6 +51,14 @@ public class User {
         this.age = age;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -58,6 +67,7 @@ public class User {
                 ", imgUrl='" + imgUrl + '\'' +
                 ", sex='" + sex + '\'' +
                 ", age=" + age +
+                ", username='" + username + '\'' +
                 '}';
     }
 }

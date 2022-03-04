@@ -5,37 +5,36 @@
     android:background="#F6F7FB"
     android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@mipmap/home_bg"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="407dp"
-            android:layout_weight="1"
-            android:gravity="center|top"
-            android:orientation="vertical"
-            android:paddingTop="91dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
-                android:layout_width="98dp"
-                android:layout_height="98dp"
+                android:id="@+id/avatar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@mipmap/home_myhead_ic" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="25dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:gravity="center"
                 android:text="姚论岩"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="17dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:gravity="center"
                 android:text="账号"
@@ -43,14 +42,14 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </FrameLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="144dp"
-        android:layout_marginStart="16dp"
+        android:layout_height="@dimen/mine_home_fun_height"
         android:layout_marginTop="-70dp"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/mine_select_radian"
         android:orientation="vertical">
@@ -59,24 +58,23 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="20dp"
                 android:src="@mipmap/home_phone">
 
             </ImageView>
 
             <TextView
-                android:layout_width="56dp"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="28dp"
-                android:gravity="left|center_vertical"
-                android:text="联系电话"
+                android:text="@string/phone"
                 android:textColor="#303030"
                 android:textSize="14sp">
 
@@ -84,78 +82,61 @@
 
             <TextView
                 android:id="@+id/phoneNumber"
-                android:layout_width="87dp"
+                android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:layout_marginStart="105dp"
-                android:layout_marginTop="28dp"
-                android:text="18285540954"
+                android:gravity="end"
+                android:text="18096051543"
                 android:textColor="#999999"
-                android:textSize="14sp">
-
-            </TextView>
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:onClick="changPwdClink"
+            >
 
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="20dp"
-                android:src="@mipmap/home_changepassword">
-
-            </ImageView>
+                android:src="@mipmap/home_changepassword" />
 
             <TextView
-                android:onClick="ChangPwdClink"
-                android:layout_width="56dp"
-                android:layout_height="20dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="28dp"
-                android:gravity="left|center_vertical"
                 android:text="修改密码"
                 android:textColor="#303030"
-                android:textSize="14sp">
-
-            </TextView>
+                android:textSize="14sp"
+                />
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="171dp"
-                android:layout_marginTop="28dp"
-                android:layout_marginEnd="12dp"
-                android:src="@mipmap/home_changepassword2">
-
-            </ImageView>
-
+                android:src="@mipmap/home_changepassword2"/>
         </LinearLayout>
 
     </LinearLayout>
 
-    <RelativeLayout
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="退出登录"
+        android:textColor="#2B86FF"
         android:background="@drawable/mine_select_radian"
-        android:gravity="center">
-
-        <TextView
-            android:onClick="exitClick"
-            android:layout_width="56dp"
-            android:layout_height="20dp"
-            android:gravity="left"
-            android:text="退出登录"
-            android:textColor="#2B86FF" />
-
-
-    </RelativeLayout>
+        android:onClick="exitClick"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"

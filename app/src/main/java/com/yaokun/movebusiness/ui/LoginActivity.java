@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 
 import com.yaokun.movebusiness.BuildConfig;
+import com.yaokun.movebusiness.Constant;
 import com.yaokun.movebusiness.R;
 import com.yaokun.movebusiness.data.RemoteRepository;
 import com.yaokun.movebusiness.entity.User;
@@ -140,6 +141,7 @@ public class LoginActivity extends BaseActivity {
                     public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                         try {
                             String json = response.body().string();
+                            Log.d(TAG, json);
                             User user = GsonUtils.fromJson(json, User.class);
                             Log.d(TAG, user.toString());
                             runOnUiThread(new Runnable() {
@@ -148,8 +150,7 @@ public class LoginActivity extends BaseActivity {
                                     hideNetworkLoading();
                                     Toast.makeText(getApplicationContext(), "登陆成功: " + user.getName(), Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    String inputText = usernameEt.getText().toString();
-                                    intent.putExtra("data",inputText);
+                                    Constant.loginUser = user;
                                     LoginActivity.this.startActivity(intent);
                                     finish();
                                 }

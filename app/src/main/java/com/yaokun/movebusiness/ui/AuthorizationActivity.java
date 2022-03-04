@@ -1,14 +1,13 @@
 package com.yaokun.movebusiness.ui;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,10 +27,11 @@ import com.github.gzuliyujiang.wheelpicker.impl.UnitTimeFormatter;
 import com.github.gzuliyujiang.wheelpicker.widget.OptionWheelLayout;
 import com.github.gzuliyujiang.wheelpicker.widget.TimeWheelLayout;
 import com.github.gzuliyujiang.wheelview.annotation.CurtainCorner;
+import com.wildma.pictureselector.PictureBean;
+import com.wildma.pictureselector.PictureSelector;
 import com.yaokun.movebusiness.R;
 import com.yaokun.movebusiness.entity.Parking;
 import com.yaokun.movebusiness.utils.DataTimeUtils;
-import com.yaokun.movebusiness.utils.GetPhotoUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,11 +44,13 @@ public class AuthorizationActivity extends AppCompatActivity {
     private TextView licTv;
     private ImageView pointRed;
     private TextView helpTv;
+    private ImageView picture;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorization1);
+
 
         // Android状态栏与背景图完美沉浸
         View decorView = getWindow().getDecorView();
@@ -79,7 +81,7 @@ public class AuthorizationActivity extends AppCompatActivity {
                         LicPlate.setBackground(getDrawable(R.drawable.au_boarder));
                         licTv.setTextColor(getColor(R.color.licTvColor2));
                         pointRed.setImageDrawable(getResources().getDrawable(R.drawable.red_point));
-                        LicPlate.setCompoundDrawablesRelativeWithIntrinsicBounds(null,null,null,null);
+                        LicPlate.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, null, null);
                         helpTv.setVisibility(helpTv.VISIBLE);
                     }
                 }
@@ -101,7 +103,7 @@ public class AuthorizationActivity extends AppCompatActivity {
                     LicPlate.setBackground(getDrawable(R.drawable.lic_plate_select_bg));
                     licTv.setTextColor(getColor(R.color.licTvColor));
                     pointRed.setImageDrawable(getResources().getDrawable(R.drawable.red_point2));
-                    LicPlate.setCompoundDrawablesRelativeWithIntrinsicBounds(null,null,getDrawable(R.drawable.lic_tv_block),null);
+                    LicPlate.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, getDrawable(R.drawable.lic_tv_block), null);
                     helpTv.setVisibility(helpTv.GONE);
 
                 }
@@ -214,24 +216,36 @@ public class AuthorizationActivity extends AppCompatActivity {
     }
 
     public void takePhoto(View view) {
-        Button button = findViewById(R.id.take_photo);
-
-        GetPhotoUtils.openCameraClick(button, AuthorizationActivity.this);
+        PictureSelector
+                .create(AuthorizationActivity.this, PictureSelector.SELECT_REQUEST_CODE)
+                .selectPicture(false);
 
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
-            Bundle bundle = data.getExtras();
-            Bitmap bitmap = (Bitmap) bundle.get("data");
-            ImageView picture = findViewById(R.id.picture);
-            picture.setImageBitmap(bitmap);
+        /*结果回调*/
+        if (requestCode == PictureSelector.SELECT_REQUEST_CODE) {
+            if (data != null) {
+                PictureBean pictureBean = data.getParcelableExtra(PictureSelector.PICTURE_RESULT);
+                picture = findViewById(R.id.picture);
+                if (pictureBean.isCut()) {
+                    picture.setImageBitmap(BitmapFactory.decodeFile(pictureBean.getPath()));
+                } else {
+                    picture.setImageURI(pictureBean.getUri());
+                }
 
-
+                //使用 Glide 加载图片
+                /*Glide.with(this)
+                        .load(pictureBean.isCut() ? pictureBean.getPath() : pictureBean.getUri())
+                        .apply(RequestOptions.centerCropTransform()).into(mIvImage);*/
+            }
         }
-    }
-}
+            }
+        }
+
+
+
 
 

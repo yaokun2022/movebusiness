@@ -1,6 +1,9 @@
 package com.yaokun.movebusiness.ui;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,5 +18,21 @@ public abstract class BaseActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StatusBarUtil.setImmersion(getWindow());
+    }
+
+
+    public void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    public void startActivity(Class<?> cls) {
+        startActivity(cls, false);
+    }
+
+    public void startActivity(Class<?> cls, Boolean finish) {
+        startActivity(new Intent(this, cls));
+        if (finish) {
+            finish();
+        }
     }
 }

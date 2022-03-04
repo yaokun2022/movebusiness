@@ -1,51 +1,44 @@
 package com.yaokun.movebusiness.ui;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.yaokun.movebusiness.Constant;
 import com.yaokun.movebusiness.R;
 
 /**
  * 我的界面
  */
-public class MineHomeActivity extends AppCompatActivity {
+public class MineHomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mine_home);
-        // Android状态栏与背景图完美沉浸
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-        getWindow().setStatusBarColor(Color.TRANSPARENT);
 
         TextView textView = findViewById(R.id.phoneNumber);
-        String cellPhone = getIntent().getStringExtra("data");
-        textView.setText(cellPhone);
+        if (Constant.loginUser==null) {
+            showToast("请登录后重试！");
+            startActivity(LoginActivity.class);
+            return;
+        }
+        textView.setText(Constant.loginUser.getUsername());
 
-
-        findViewById(R.id.mh).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MineHomeActivity.this,MainActivity.class);
-                MineHomeActivity.this.startActivity(intent);
-                finish();
-            }
+        findViewById(R.id.mh).setOnClickListener(view -> {
+            startActivity(MainActivity.class, true);
+            finish();
         });
 
     }
 
-    public void ChangPwdClink(View view) {
-        Intent intent = new Intent(MineHomeActivity.this, ChangePasswordActivity.class);
-        startActivity(intent);
+    public void changPwdClink(View view) {
+        startActivity(ChangePasswordActivity.class);
     }
 
     public void exitClick(View view) {
-        Intent intent = new Intent(MineHomeActivity.this,LoginActivity.class);
-        startActivity(intent);
+        startActivity(LoginActivity.class, true);
     }
 }
