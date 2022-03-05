@@ -11,7 +11,5 @@ public class LicensePlateUtils {
     public static boolean checkLicensePlate(String LicPlate) {
         if (LicPlate == null) return false;
         return LicPlate.matches(LICENSE_PLATE_RE);
-
     }
-
 }

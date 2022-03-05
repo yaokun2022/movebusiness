@@ -41,4 +41,15 @@ public class StatusBarUtil {
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         window.setStatusBarColor(Color.TRANSPARENT);
     }
+
+    /**
+     *
+     * Android 弹出输入法，文本框上移
+     *
+     */
+    public static void setTypewriting(Activity activity){
+        //打开输入法 文本框上移
+        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+    }
+
 }

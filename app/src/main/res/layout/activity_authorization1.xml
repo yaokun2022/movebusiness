@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F6F7FB"
@@ -206,7 +206,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/au_boarder"
                     android:enabled="false"
-                    android:hint="贵A12345"
+                    android:hint="请输入车牌号码"
                     android:inputType="text"
                     android:maxLength="7"
                     android:paddingStart="11dp"
@@ -358,22 +358,37 @@
                 android:background="@mipmap/ic_au_voucher"
                 android:onClick="takePhoto" />
 
-            <ImageView
-                android:id="@+id/picture"
+            <RelativeLayout
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginStart="127dp"
-                android:layout_marginTop="45dp"
-                android:scaleType="fitXY"
-                />
+                android:layout_marginStart="@dimen/dp_127"
+                android:layout_marginTop="@dimen/dp_46">
+
+                <ImageView
+                    android:id="@+id/picture"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="fitXY" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/deletePic"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/au_ic_delete_btn"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="171dp"
-                android:text="备注"
-                />
+                android:text="备注" />
 
 
             <RelativeLayout
@@ -386,6 +401,7 @@
                 android:background="@drawable/au_remark_bg_radian">
 
                 <EditText
+                    android:id="@+id/remarksText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
@@ -393,25 +409,29 @@
                     android:layout_marginEnd="12dp"
                     android:background="@drawable/au_remark_bg_radian"
                     android:hint="如果输入的内容溢出就会按内容垂直自适应回复框，最多30个字"
+                    android:maxLength="30"
                     android:maxLines="2"
                     android:textColorHint="#303030"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
+
 
                 <TextView
+                    android:id="@+id/remarksCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="12dp"
                     android:layout_marginBottom="8dp"
-                    android:text="20/30"
                     android:textSize="12sp" />
+
 
             </RelativeLayout>
 
         </RelativeLayout>
 
         <TextView
+
             android:id="@+id/determineBtn"
             android:layout_width="match_parent"
             android:layout_height="48dp"

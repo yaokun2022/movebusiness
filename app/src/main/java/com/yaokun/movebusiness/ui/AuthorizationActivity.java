@@ -1,5 +1,9 @@
 package com.yaokun.movebusiness.ui;
 
+import static com.yaokun.movebusiness.R.drawable.*;
+
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -7,14 +11,20 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AlertDialogLayout;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.github.gzuliyujiang.wheelpicker.OptionPicker;
@@ -33,25 +43,100 @@ import com.wildma.pictureselector.PictureSelector;
 import com.yaokun.movebusiness.R;
 import com.yaokun.movebusiness.entity.Parking;
 import com.yaokun.movebusiness.utils.DataTimeUtils;
+import com.yaokun.movebusiness.utils.LicensePlateUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class AuthorizationActivity extends AppCompatActivity {
+public class AuthorizationActivity extends BaseActivity {
     private ImageView licensePlate;
     private ImageView noLicensePlate;
-    private EditText LicPlate;
+    private EditText licPlate;
     private TextView licTv;
     private ImageView pointRed;
     private TextView helpTv;
     private ImageView picture;
-    private AppCompatButton deletePic ;
+    private AppCompatButton deletePic;
+    private EditText remarksText;
+    private TextView remarksCount;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorization1);
+        TextView textView = findViewById(R.id.dataTV);
+
+        //结束授权
+        TextView determineBtn = findViewById(R.id.determineBtn);
+        TextView title = findViewById(R.id.titleDialog);
+        determineBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(AuthorizationActivity.this);
+                View dialogView = View.inflate(getApplicationContext(), R.layout.activity_quit_dialog, null);
+                builder.setView(dialogView);
+                Button cancelBtn = dialogView.findViewById(R.id.cancelBtn);
+                final AlertDialog dialog = builder.show();
+                dialogView.findViewById(R.id.confirmBtn).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                });
+                cancelBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.create();
+                dialog.show();
+            }
+        });
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String time = DataTimeUtils.onTime24(AuthorizationActivity.this);
+                String data = DataTimeUtils.selectData(AuthorizationActivity.this);
+                textView.setText(data + time);
+            }
+        });
+
+
+        //备注统计
+        //打开输入法 文本框上移
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        int bigNum = 30;
+        remarksText = findViewById(R.id.remarksText);
+        remarksCount = findViewById(R.id.remarksCount);
+        remarksCount.setText(remarksText.length() + "/" + bigNum);
+        remarksText.addTextChangedListener(new TextWatcher() {
+
+            private CharSequence temp;
+            private int selectionStart;
+            private int selectionEnd;
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                temp = s;
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                remarksCount.setText(s.length() + "/30");
+                if (s.length() == 30) {
+                    Toast.makeText(getApplicationContext(), "备注超出", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         //删除凭证
         deletePic = findViewById(R.id.deletePic);
@@ -63,21 +148,31 @@ public class AuthorizationActivity extends AppCompatActivity {
             }
         });
 
-
-        // Android状态栏与背景图完美沉浸
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-        getWindow().setStatusBarColor(Color.TRANSPARENT);
-
         //设置有车牌无车牌选择
         licensePlate = findViewById(R.id.selectLicensePlate);
         noLicensePlate = findViewById(R.id.selectNoLicensePlate);
-        LicPlate = findViewById(R.id.licPlaEt);
+        licPlate = findViewById(R.id.licPlaEt);
         licTv = findViewById(R.id.licTV);
         pointRed = findViewById(R.id.pointIv);
         helpTv = findViewById(R.id.helpTv);
+        licPlate.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (LicensePlateUtils.checkLicensePlate(licPlate.getText().toString())) {
+                    licPlate.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, getDrawable(R.mipmap.login_username_ic), null);
+                }
+            }
+        });
 
         licensePlate.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
@@ -90,11 +185,11 @@ public class AuthorizationActivity extends AppCompatActivity {
                         licensePlate.setClickable(false);
                         noLicensePlate.setClickable(true);
                         //设置车牌号样式
-                        LicPlate.setEnabled(true);
-                        LicPlate.setBackground(getDrawable(R.drawable.au_boarder));
+                        licPlate.setEnabled(true);
+                        licPlate.setBackground(getDrawable(au_boarder));
                         licTv.setTextColor(getColor(R.color.licTvColor2));
-                        pointRed.setImageDrawable(getResources().getDrawable(R.drawable.red_point));
-                        LicPlate.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, null, null);
+                        pointRed.setImageDrawable(getResources().getDrawable(red_point));
+                        licPlate.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, null, null);
                         helpTv.setVisibility(helpTv.VISIBLE);
                     }
                 }
@@ -112,11 +207,11 @@ public class AuthorizationActivity extends AppCompatActivity {
                     noLicensePlate.setClickable(false);
                     licensePlate.setClickable(true);
                     //设置车牌号样式
-                    LicPlate.setEnabled(false);
-                    LicPlate.setBackground(getDrawable(R.drawable.lic_plate_select_bg));
+                    licPlate.setEnabled(false);
+                    licPlate.setBackground(getDrawable(lic_plate_select_bg));
                     licTv.setTextColor(getColor(R.color.licTvColor));
-                    pointRed.setImageDrawable(getResources().getDrawable(R.drawable.red_point2));
-                    LicPlate.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, getDrawable(R.drawable.lic_tv_block), null);
+                    pointRed.setImageDrawable(getResources().getDrawable(red_point2));
+                    licPlate.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, getDrawable(lic_tv_block), null);
                     helpTv.setVisibility(helpTv.GONE);
 
                 }
@@ -124,7 +219,7 @@ public class AuthorizationActivity extends AppCompatActivity {
         });
 
         //车牌号是否正确
-        LicPlate.addTextChangedListener(new TextWatcher() {
+        licPlate.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -214,20 +309,14 @@ public class AuthorizationActivity extends AppCompatActivity {
         SelectParking();
     }
 
-    public void startDataClick(View view) {
-        TextView textView = findViewById(R.id.dataTV);
-        onTime24(textView);
-        DataTimeUtils takePhoto = new DataTimeUtils();
-        takePhoto.selectData(AuthorizationActivity.this);
-    }
-
     public void endDataClick(View view) {
         TextView textView = findViewById(R.id.dataTV2);
-        onTime24(textView);
-        DataTimeUtils takePhoto = new DataTimeUtils();
-        takePhoto.selectData(AuthorizationActivity.this);
+        String time = DataTimeUtils.onTime24(AuthorizationActivity.this);
+        String data = DataTimeUtils.selectData(AuthorizationActivity.this);
+        textView.setText(data + time);
     }
 
+    //从相机或相册获取图片
     public void takePhoto(View view) {
         PictureSelector
                 .create(AuthorizationActivity.this, PictureSelector.SELECT_REQUEST_CODE)

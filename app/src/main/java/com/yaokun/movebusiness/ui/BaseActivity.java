@@ -18,6 +18,7 @@ public abstract class BaseActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StatusBarUtil.setImmersion(getWindow());
+        StatusBarUtil.setTypewriting(this);
     }
 
 
