@@ -18,6 +18,7 @@ public class RemoteRepository {
 
     // 登陆接口url
     private static final String LOGIN_URL = "http://mock.bigoat.com/mock/620e59762f09d576049aa3a9/park/login";
+    private static final String AUTH_LIST_URL = "http://mock.bigoat.com/mock/620e59762f09d576049aa3a9/park/getAuthList";
 
     private static final Gson GSON = new Gson();
 
@@ -39,5 +40,21 @@ public class RemoteRepository {
         Log.d(TAG, json);
 
         HttpUtils.post(LOGIN_URL, json, callback);
+    }
+
+
+
+    /**
+     * 授权记录接口
+     *
+     * @param park 车牌
+     * @return
+     */
+    public static void getAuthList(String park, Callback callback) {
+
+        Map<String, String> map = new HashMap<>();
+        map.put("park", park);
+
+        HttpUtils.get(AUTH_LIST_URL, map, callback);
     }
 }

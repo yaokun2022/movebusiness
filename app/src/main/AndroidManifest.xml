@@ -15,6 +15,7 @@
         <activity android:name=".ui.AuthorizationActivity" />
         <activity android:name=".ui.ModPwdSucceedActivity" />
         <activity android:name=".ui.ChangePasswordActivity" />
+        <activity android:name=".ui.AuthDetailsActivity"/>
         <activity
             android:name=".ui.VerificationCodeActivity"
             android:exported="false" />

@@ -13,12 +13,15 @@ import com.yaokun.movebusiness.utils.StatusBarUtil;
  * 基础 Activity
  */
 public abstract class BaseActivity extends AppCompatActivity  {
+    public static String tag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StatusBarUtil.setImmersion(getWindow());
         StatusBarUtil.setTypewriting(this);
+
+        tag = this.getClass().getSimpleName();
     }
 
 

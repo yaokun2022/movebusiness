@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F6F7FB"
     android:orientation="vertical"
     android:paddingStart="16dp"
@@ -40,24 +41,25 @@
         android:layout_marginTop="12dp"
         android:orientation="horizontal">
 
-        <EditText
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:background="@drawable/search_boarder"
-            android:drawableLeft="@mipmap/ic_gray_search"
-            android:drawablePadding="11dp"
-            android:hint="请输入需要查询的车牌号码"
-            android:paddingStart="16dp"
-            android:textColorHint="#AAAAAA"
+            app:queryHint="请输入需要查询的车牌号"
             android:textSize="14sp" />
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:id="@+id/searchBtn"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/dp_20"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@mipmap/ic_filter" />
+            android:src="@mipmap/ic_filter"
+            />
 
     </LinearLayout>
 

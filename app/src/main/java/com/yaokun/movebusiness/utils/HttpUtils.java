@@ -49,17 +49,17 @@ public class HttpUtils {
      * @return
      * @throws IOException
      */
-    public static String get(String url, Map<String, String> params) throws IOException {
-        HttpUrl.Builder httpBuilder = HttpUrl.parse(url).newBuilder();
+    public static void get(String url, Map<String, String> params, Callback callback) {
+        HttpUrl.Builder urlBuilder =HttpUrl.parse(url).newBuilder();
         if (params != null) {
             for(Map.Entry<String, String> param : params.entrySet()) {
-                httpBuilder.addQueryParameter(param.getKey(),param.getValue());
+                urlBuilder.addQueryParameter(param.getKey(),param.getValue());
             }
         }
-        Request request = new Request.Builder().url(httpBuilder.build()).build();
-        Response response = CLIENT.newCall(request).execute();
-
-        return response.body().string();
+        Request.Builder reqBuild = new Request.Builder();
+        reqBuild.url(urlBuilder.build());
+        Request request = reqBuild.build();
+        CLIENT.newCall(request).enqueue(callback);
     }
 
 }
